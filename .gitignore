@@ -1,0 +1,6 @@
+old/
+tmp/
+*.dll
+*.exe
+*.obj
+*.exp
