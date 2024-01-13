@@ -3,7 +3,7 @@
 #include <stdio.h>
 #pragma comment(lib, "Dbghelp")
 
-void mySleep(DWORD dwMilliseconds);
+void __stdcall mySleep(DWORD dwMilliseconds);
 
 int modifyIAT (char *targetDll, char *targetFunc) {
     HMODULE hModule = GetModuleHandle(NULL);
@@ -57,7 +57,7 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReserve
     return TRUE;
 }
 
-void mySleep(DWORD dwMilliseconds)
+void __stdcall mySleep(DWORD dwMilliseconds)
 {
     OutputDebugString("hooked api!\n");
     Sleep(dwMilliseconds + 4000);
